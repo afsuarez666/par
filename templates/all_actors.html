@@ -1,0 +1,12 @@
+{%include 'header.html'%}
+{%include 'navbar.html'%}
+<section class="grid_container_card">
+{% for id, actor in actors %}
+    {%include 'actor_card.html'%}
+{% endfor %}
+
+</section>
+
+
+
+{%include 'footer.html'%}
