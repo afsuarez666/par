@@ -1,7 +1,7 @@
 #Imports
 
 import os
-from fastapi import FastAPI,Query,Path, HTTPException, status,Body, Request, Response, File, UploadFile
+from fastapi import FastAPI,Query,Path, HTTPException, status,Body, Request, Response, File, UploadFile, Form
 from fastapi.encoders import jsonable_encoder
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
@@ -10,6 +10,8 @@ from pydantic import BaseModel, Field, AnyUrl
 from typing import Optional, List, Dict
 
 from database import actors
+from database import characters
+
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -44,7 +46,7 @@ def root(request: Request):
                                        })
 
 
-# All Cars
+# All actor
 @app.get(
     path="/actor",
     status_code=status.HTTP_200_OK,
@@ -62,4 +64,68 @@ def get_Actor(request: Request):
                                        "actors": response,
                                        "title": "All actor"})
 
+#All characters
+@app.get(
+    path="/character",
+    status_code=status.HTTP_200_OK,
+    response_class=HTMLResponse,
+
+    description="Return all characters from the 'database'",
+    tags=["Character"]
+)
+def get_Character(request: Request):
+    response = []
+    for id, character in list(characters.items()):
+        response.append((id, character))
+    return templates.TemplateResponse("all_character.html",
+                                      {"request": request,
+                                       "characters": response,
+                                       "title": "All character"})
+
+
+@app.post(
+    path="/search",
+    response_class=RedirectResponse
+)
+def search_actor(id: str = Form(...)):
+    return RedirectResponse("/actor/" + id, status_code=status.HTTP_302_FOUND)
+
+
+
+# Actor by ID
+@app.get(
+    path="/actor/{id}",
+    response_model=actor,
+    status_code=status.HTTP_202_ACCEPTED,
+    tags=["Actors"],
+    description="Return a actor by the id indicated"
+)
+def get_actor_by_id(request: Request, id: int = Path(..., gt=0, lt=1000)):
+    actor = actors.get(id)
+    response = templates.TemplateResponse("search.html", {"request": request,
+                                                          "actor": actor,
+                                                          "id": id,
+                                                          "title": "Search an actor"})
+    if not actor:
+        response.status_code = status.HTTP_404_NOT_FOUND
+    return response
+
+
+    # Character by ID
+@app.get(
+    path="/characters/{id}",
+    response_model=character,
+    status_code=status.HTTP_202_ACCEPTED,
+    tags=["Characters"],
+    description="Return a character by the id indicated"
+)
+def get_character_by_id(request: Request, id: int = Path(..., gt=0, lt=1000)):
+    car = characters.get(id)
+    response = templates.TemplateResponse("search2.html", {"request": request,
+                                                          "character": character,
+                                                          "id": id,
+                                                          "title": "Search an character"})
+    if not character:
+        response.status_code = status.HTTP_404_NOT_FOUND
+    return response
 

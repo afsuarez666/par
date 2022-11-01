@@ -1,0 +1,11 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<div class="container">
+    {% if actor %}
+        {% include 'actor_card.html' %}
+    {% else %}
+        <h2>Oops!</h2>
+    {% endif %}
+</div>
+{% include 'footer.html' %}

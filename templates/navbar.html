@@ -1,12 +1,23 @@
 <section>
-    <div>Real time example, Navbar:</div>
     <nav>
       <ul class="menuItems">
-        <li><a href='#' data-item='Home'>Home</a></li>
-        <li><a href='#' data-item='About'> About us</a></li>
-        <li><a href='/actor' data-item='actor'>Actors</a></li>
-        <li><a href='#' data-item='Blog'>Characters</a></li>
-        <li><a href='#' data-item='Contact'>Upload</a></li>
+        <li><a href='/' data-item='Home'>Home</a></li>
+        <li><a href='#' data-item='About us'> About us</a></li>
+        <li><a href='/actor' data-item='Actors'>Actors</a></li>
+        <li><a href='/character' data-item='Characters'>Characters</a></li>
+        <li><a href='#' data-item='Upload'>Upload</a></li>
+        <li> 
+          <div id="wrap">
+            <form action="/search" method="POST" autocomplete="on">
+            <input  name="id" type="text" placeholder="Search a actor">
+            <input id="search_submit" value="Rechercher" type="submit">
+            </form>
+          </div>
+
+
+         
+    
+        </li>
       </ul>
     </nav>
   
