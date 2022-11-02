@@ -1,0 +1,31 @@
+
+{%include 'header.html'%}
+{%include 'navbar.html'%}
+
+
+
+
+
+
+<form class="frame" method="post" action="/upload/image" enctype="multipart/form-data">
+	<div class="center">
+		<div class="title">
+			<h1>Drop file to upload</h1>
+		</div>
+
+		<div class="dropzone">
+			<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+			<input name="file" type="file" class="upload-input" />
+		</div>
+
+		<button type="submit" class="btn" name="uploadbutton">Upload file</button>
+
+	</div>
+</form>
+
+
+
+
+
+
+{%include 'footer.html'%}

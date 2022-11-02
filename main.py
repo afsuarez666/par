@@ -9,6 +9,8 @@ from fastapi.responses import RedirectResponse, HTMLResponse, StreamingResponse,
 from pydantic import BaseModel, Field, AnyUrl
 from typing import Optional, List, Dict
 
+import base64
+
 from database import actors
 from database import characters
 
@@ -128,4 +130,50 @@ def get_character_by_id(request: Request, id: int = Path(..., gt=0, lt=1000)):
     if not character:
         response.status_code = status.HTTP_404_NOT_FOUND
     return response
+
+
+
+
+
+
+
+
+
+
+
+@app.get(
+    path=("/upload"),
+    response_class=HTMLResponse,
+    status_code=status.HTTP_200_OK,
+    tags=["Upload"]
+)
+def upload(request: Request):
+    return templates.TemplateResponse("upload.html", {"request": request,
+                                                      "title": "Upload"})
+
+
+def is_directory_ready():
+    os.makedirs(os.getcwd()+"/uploadimg", exist_ok=True)
+    return os.getcwd()+"/uploadimg/"
+
+
+@app.post(
+    path="/upload/image",
+    tags=["Upload"])
+def upload(request: Request, file: UploadFile = File(...)):
+    try:
+        contents = file.file.read()
+        dir = is_directory_ready()
+        with open(dir + file.filename, "wb") as f:
+            f.write(contents)
+    except Exception:
+        return {"message": "Hubo un error al subir la imagen"}
+    finally:
+        file.file.close()
+
+    base64_encoded_image = base64.b64encode(contents).decode("utf-8")
+
+    return templates.TemplateResponse("upload2.html", {"request": request,  "myImage": base64_encoded_image})
+
+
 
