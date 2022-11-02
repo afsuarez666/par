@@ -26,6 +26,7 @@ class actor (BaseModel):
         last_name:Optional[str]
         born_day:Optional[int]
         born_month:Optional[str]
+        born_year:Optional[int]
         awards:Optional[List[str]]
         movies:Optional[List[str]]
         picture:Optional[str]

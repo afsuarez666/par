@@ -1,82 +1,49 @@
 actors={
 
-    1:{
-        "first_name":"Matt",
-        "last_name":"Damon",
-        "born_day":8,
-        "born_month":"October",
-        "awards":["perro","xd"],
-        "movies":["ola","jose"],
-        "picture":"img.jpg",
-        "web":"xd2",
-        "instagram":"https://www.instagram.com/"
-    },
 
-    2:{
-        "first_name":"moneda",
-        "last_name":"David",
-        "born_day":2,
-        "born_month":"feb",
-        "awards":["perro","xd"],
-        "movies":["ola","jose"],
-        "picture":"img.jpg",
-        "web":"xd2",
-        "instagram":"https://www.instagram.com/"
-    },
+    1: {"first_name": "Matt",
+        "last_name": "Damon",
+        "born_day": 8,
+        "born_month": "October",
+        "born_year": 1970,
+        "awards": ["Premio Empire al mejor actor", "Premio Óscar al Mejor Guión Original"],
+        "movies": [],
+        "picture": "",
+        "web": "",
+        "instagram": "https://www.instagram.com/matt_damon_official/"
+        }
 
-    3:{
-        "first_name":"moneda",
-        "last_name":"David",
-        "born_day":2,
-        "born_month":"feb",
-        "awards":["perro","xd"],
-        "movies":["ola","jose"],
-        "picture":"img.jpg",
-        "web":"xd2",
-        "instagram":"https://www.instagram.com/"
-    },
-
-    4:{
-        "first_name":"moneda",
-        "last_name":"David",
-        "born_day":2,
-        "born_month":"feb",
-        "awards":["perro","xd"],
-        "movies":["ola","jose"],
-        "picture":"img.jpg",
-        "web":"xd2",
-        "instagram":"https://www.instagram.com/"
-    },
-
-    5:{
-        "first_name":"moneda",
-        "last_name":"David",
-        "born_day":2,
-        "born_month":"feb",
-        "awards":["perro","xd"],
-        "movies":["ola","jose"],
-        "picture":"img.jpg",
-        "web":"xd2",
-        "instagram":"https://www.instagram.com/"
-    },
-
-    6:{
-        "first_name":"moneda",
-        "last_name":"David",
-        "born_day":2,
-        "born_month":"feb",
-        "awards":["perro","xd"],
-        "movies":["ola","jose"],
-        "picture":"img.jpg",
-        "web":"xd2",
-        "instagram":"https://www.instagram.com/"
-    },
-
-
-
+            
 }
 
 characters={
+
+    1:{
+        "name":"a",
+        "last_name":"",
+        "profession":"",
+        "role":"",
+        "days_out_of_earth":""
+
+    },
+
+    2:{
+        "name":"a",
+        "last_name":"",
+        "profession":"",
+        "role":"",
+        "days_out_of_earth":""
+
+    },
+
+    3:{
+        "name":"a",
+        "last_name":"",
+        "profession":"",
+        "role":"",
+        "days_out_of_earth":""
+
+    },
 
     
 }
