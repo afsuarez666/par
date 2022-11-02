@@ -8,7 +8,7 @@ actors={
         "born_year": 1970,
         "awards": ["Premio Empire al mejor actor", "Premio Óscar al Mejor Guión Original"],
         "movies": ["Good Will Hunting","Ocean's y Bourne","Planet of the apes"],
-        "picture": "",
+        "picture": "ola.jpg",
         "web": "",
         "instagram": "https://www.instagram.com/matt_damon_official/"
         },
@@ -71,9 +71,9 @@ actors={
         "picture": "",
         "web": "",
         "instagram": "https://instagram.com/kristenwiigofficial?igshid=YmMyMTA2M2Y="
-        }
+        },
 
-            
+                
 }
 
 characters={
@@ -83,7 +83,7 @@ characters={
         "last_name":"Watney",
         "profession":["Botanico","Ingeniero mecanico"],
         "role":["Astronauta"],
-        "days_out_of_earth":""
+        "days_out_of_earth":"500"
 
     },
 

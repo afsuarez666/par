@@ -4,8 +4,15 @@
     <div class="card"><img class="card__img" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2250&amp;q=80" alt="Snowy Mountains">
         <div class="card__content">
             <h1 class="card__header">{{character.name }} {{character.last_name}}</h1>
-            <h1 class="card__header">{{character.profession }}<h1>
-            <h1 class="card__header">{{character.role }}</h1>
+
+            {%for i in character.profession%}
+            <h1>{{i}}</h1>
+            {%endfor%}
+
+            {%for i in character.role%}
+            <h1>{{i}}</h1>
+            {%endfor%}
+            
             <h1 class="card__header">{{character.days_out_of_earth}}</h1>
         
         </div>
