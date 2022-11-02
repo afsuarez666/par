@@ -36,7 +36,7 @@ class actor (BaseModel):
 class character (BaseModel):
     name:Optional[str]
     last_name:Optional[str]
-    profession:Optional[str]
+    profession:Optional[List[str]]
     role:Optional[str]
     days_out_of_earth:Optional[str]
 
